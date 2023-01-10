@@ -23,8 +23,8 @@ export class RestServiceService {
 
   httpError(error: { error: { message: string; }; status: any; message: any; }) {
     let msg = '';
-    
-    if(error.error instanceof ErrorEvent) {
+
+    if (error.error instanceof ErrorEvent) {
       // client side error
       msg = error.error.message;
     } else {
@@ -38,37 +38,37 @@ export class RestServiceService {
 
   getUsers(): Observable<AppUser> {
     return this.httpClient.get<AppUser>(this.endPoint)
-    .pipe(retry(1),catchError(this.httpError));
+      .pipe(retry(1), catchError(this.httpError));
   }
 
-  getUser(id: string| null): Observable<AppUser> {
-    return this.httpClient.get<AppUser>(this.endPoint + '/users/' + id)
-    .pipe(retry(1),catchError(this.httpError));
-  }  
+  getUser(id: string | null): Observable<AppUser> {
+    return this.httpClient.get<AppUser>(this.endPoint + '/' + id)
+      .pipe(retry(1), catchError(this.httpError));
+  }
 
   create(user: any): Observable<AppUser> {
 
-    return this.httpClient.post<AppUser>(this.endPoint, JSON.stringify(user), this.httpHeader).pipe(retry(1),catchError(this.httpError));
-    
-  }  
+    return this.httpClient.post<AppUser>(this.endPoint, JSON.stringify(user), this.httpHeader).pipe(retry(1), catchError(this.httpError));
 
-  update(id: string, data: any): Observable<AppUser> {
-    return this.httpClient.put<AppUser>(this.endPoint + '/users/' + id, JSON.stringify(data), this.httpHeader)
-    .pipe(
-      retry(1),
-      catchError(this.httpError)
-    )
   }
 
-  delete(id: string){
+  update(id: string, data: any): Observable<AppUser> {
+    return this.httpClient.put<AppUser>(this.endPoint + '/' + id, JSON.stringify(data), this.httpHeader)
+      .pipe(
+        retry(1),
+        catchError(this.httpError)
+      )
+  }
+
+  delete(id: string) {
 
 
 
     return this.httpClient.delete<AppUser>(this.endPoint + '/' + id, this.httpHeader)
-    .pipe(
-      retry(1),
-      catchError(this.httpError)
-    )
+      .pipe(
+        retry(1),
+        catchError(this.httpError)
+      )
   }
 
 }
