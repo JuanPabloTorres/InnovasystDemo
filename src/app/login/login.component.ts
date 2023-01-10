@@ -28,7 +28,7 @@ export class LoginComponent {
 
     
 
-        this.router.navigate(['/userList'], { relativeTo: this.route });
+        this.router.navigate(['/userList']);
 
     
 

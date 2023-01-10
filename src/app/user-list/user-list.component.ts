@@ -35,5 +35,10 @@ export class UserListComponent {
       
     });
 
+
+    edit(id: string) {
+
+   
+
   }
 }

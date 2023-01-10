@@ -41,7 +41,7 @@ export class RestServiceService {
     .pipe(retry(1),catchError(this.httpError));
   }
 
-  getUser(id: string): Observable<AppUser> {
+  getUser(id: string| null): Observable<AppUser> {
     return this.httpClient.get<AppUser>(this.endPoint + '/users/' + id)
     .pipe(retry(1),catchError(this.httpError));
   }  
