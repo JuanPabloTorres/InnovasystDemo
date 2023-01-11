@@ -32,7 +32,7 @@ export class UserListComponent {
       {
 console.log(id);
         this.router.navigate(['/editUser',id]);
-        debugger;
+       
       }
   }
 }
