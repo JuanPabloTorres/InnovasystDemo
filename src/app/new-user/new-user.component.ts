@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppUser } from '../Model/app-user';
 import { RestServiceService } from '../rest-service.service';
 
@@ -9,24 +10,22 @@ import { RestServiceService } from '../rest-service.service';
 })
 export class NewUserComponent {
 
+  newUserForm:FormGroup= new FormGroup({
+    id:new FormControl(''),
+    gender: new FormControl('', Validators.required),
+    name:new FormControl('', Validators.required),
+    email:new FormControl('', [Validators.required,	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    
+  });
 
   constructor(public apiService: RestServiceService) {
 
 
   }
 
-  onNewUserSubmit(data: any) {
+  onNewUserSubmit() {
 
-
-    data.firstName += data.lastName;
-
-    var newUser = new AppUser("0", data.firstName, data.email, data.gender, "Active");
-
-    this.apiService.create(newUser).subscribe((data) => { alert("User Created."); });
-
-
-
-
+    this.apiService.create(this.newUserForm).subscribe((data) => { alert("User Created."); });
   }
 
 }

@@ -4,94 +4,75 @@
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                        <form #newUserForm="ngForm" (ngSubmit)="onNewUserSubmit(newUserForm.value)">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">New User</h3>
+                        <form [formGroup]="newUserForm" (ngSubmit)="onNewUserSubmit()">
 
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="firstName" class="form-control form-control-lg" name="firstName" ngModel />
-                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" id="username" class="form-control form-control-lg"
+                                            name="name" formControlName="name" />
+                                        <label class="form-label" for="username">Name</label>
+                                    </div>
+
+                                    <div *ngIf="newUserForm.value.name == '' " class="alert alert-danger">
+                                        <div>Name is required.</div>
                                     </div>
 
                                 </div>
+                               
+
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="lastName" class="form-control form-control-lg" ngModel name="lastName"/>
-                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="email"
+                                            name="email"  required />
+                                        <label class="form-label" for="emailAddress">Email</label>
                                     </div>
 
+                                 
+
+                                      <div *ngIf="newUserForm.value.email== '' " class="alert alert-danger">
+                                        <div>Email is required.</div>
+                                    </div> 
+
+                                   
+                                      
                                 </div>
                             </div>
 
                             <div class="row">
-                                <!-- <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                                    <div class="form-outline datepicker w-100">
-                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                                        <label for="birthdayDate" class="form-label">Birthday</label>
-                                    </div>
-
-                                </div> -->
+                               
                                 <div class="col-md-6 mb-4">
 
                                     <h6 class="mb-2 pb-1">Gender: </h6>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" ngModel
-                                            id="femaleGender" value="Female" checked />
+                                        <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                              id="femaleGender"  value="female" />
                                         <label class="form-check-label" for="femaleGender">Female</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" ngModel
-                                            id="maleGender" value="Male" />
+                                        <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                             id="maleGender"  value="male" />
                                         <label class="form-check-label" for="maleGender">Male</label>
                                     </div>
 
-                                    
+                                    <div *ngIf="newUserForm.value.gender.touched && newUserForm.value.gender.invalid" class="alert alert-danger">
+                                        <div *ngIf="newUserForm.value.gender.errors.required">Gender is required.</div>
+                                    </div>
 
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
+                            
 
-                                    <div class="form-outline">
-                                        <input type="email" id="emailAddress" class="form-control form-control-lg" name="email" ngModel />
-                                        <label class="form-label" for="emailAddress">Email</label>
-                                    </div>
 
-                                </div>
-                                <!-- <div class="col-md-6 mb-4 pb-2">
-
-                                    <div class="form-outline">
-                                        <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                        <label class="form-label" for="phoneNumber">Phone Number</label>
-                                    </div>
-
-                                </div> -->
-
-                                <!-- <div class="col-md-6 mb-4 pb-2">
-
-                                    <select class="select form-control-lg">
-                                        <option value="1" disabled>Choose option</option>
-                                        <option value="2">Subject 1</option>
-                                        <option value="3">Subject 2</option>
-                                        <option value="4">Subject 3</option>
-                                    </select>
-                                    
-                                    <label class="form-label select-label">Choose option</label>
-
-                                </div> -->
-                            </div>
-
-                         
 
                             <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" [disabled]="!newUserForm.valid"/>
                             </div>
 
                         </form>

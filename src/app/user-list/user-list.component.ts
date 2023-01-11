@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppUser } from '../Model/app-user';
 import { RestServiceService } from '../rest-service.service';
 
 @Component({
@@ -10,7 +12,9 @@ export class UserListComponent {
 
   Users: any = [];
 
-  constructor(public apiService: RestServiceService) { }
+ 
+
+  constructor(public apiService: RestServiceService,private router:Router) { }
 
   ngOnInit() {
 
@@ -34,11 +38,16 @@ export class UserListComponent {
       this.GetUsers();
       
     });
+  }
 
 
     edit(id: string) {
 
-   
+      if(id != "")
+      {
+console.log(id);
 
+        this.router.navigate(['/editUser',id]);
+      }
   }
 }

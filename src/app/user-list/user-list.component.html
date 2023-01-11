@@ -1,5 +1,5 @@
-<table class="table table-bordered">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">#Id</th>
         <th scope="col">Name</th>
@@ -18,8 +18,8 @@
         <td>{{user.gender}}</td>
         <td>{{user.status}}</td>
         <td>
-          <button class="text-primary m-1" (click)="remove(user.id)">Delete</button>
-          <button class="text-primary m-1" (click)="remove(user.id)">Edit</button>
+          <button class="btn btn-danger m-1" (click)="remove(user.id)">Delete</button>
+          <button class="btn btn-primary m-1" (click)="edit(user.id)">Edit</button>
         </td>
        
       </tr>
