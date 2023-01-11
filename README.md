@@ -1,27 +1,11 @@
-# App2
+Para propósitos de entrevista para la compañía Innovasyst. Se creó un proyecto demo en Angular que realiza las operaciones CRUD el cual utiliza como backend el endpoint “https://gorest.co.in/public/v2/users”. El mismo se colocó en un manejador de versión Git. La aplicación consta de las siguientes vistas:Login,New User ,Edit User y User List.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+Para la pantalla “Login” sé creo una validación forzada que utiliza como credenciales “Username:user1” y “Password:123”. El mismo consta con algunas validaciones tales como verificar el valor de los campos y si las credenciales son válidas.
 
-## Development server
+Para la pantalla “New User” se creó una forma que contiene los campos Name,Email y Gender. Estos campos deben estar llenos para poder someter la forma. La misma lógica se aplica para la pantalla “Edit User”.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Del usuario haberse autenticado de manera correcta, este navegará para la pantalla “User List”. El cual descargara 10 usuarios del api “https://gorest.co.in/public/v2/users” en una tabla que tiene como control de usuarios los botones “Delete” y “Edit”.
 
-## Code scaffolding
+Al usuario presionar “Delete” este enviará un API call el cual borrara el usuario con el ID seleccionado.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Git URL:https://github.com/JuanPabloTorres/InnovasystDemo Branch:master
