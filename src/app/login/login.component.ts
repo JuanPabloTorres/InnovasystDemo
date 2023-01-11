@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent {
 
- 
+
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -26,11 +26,13 @@ export class LoginComponent {
 
       if (data.username == "user1" && data.password == "123") {
 
-    
+
 
         this.router.navigate(['/userList']);
 
-    
+
+
+
 
       } else {
 

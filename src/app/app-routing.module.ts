@@ -8,7 +8,7 @@ import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
 
-  { path: "", component: AppComponent, pathMatch: "full" },
+  { path: '', component: AppComponent, pathMatch: "full" },
   { path: 'Login', component: LoginComponent },
   { path: 'newUser', component: NewUserComponent },
   { path: 'userList', component: UserListComponent },

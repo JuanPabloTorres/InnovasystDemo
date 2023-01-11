@@ -12,6 +12,8 @@ export class UserListComponent {
 
   Users: any = [];
 
+  totalRows:number=0;
+
  
 
   constructor(public apiService: RestServiceService,private router:Router) { }
@@ -27,6 +29,10 @@ export class UserListComponent {
     this.apiService.getUsers().subscribe((data: {}) => {
 
       this.Users = data;
+
+      this.totalRows=this.Users.length;
+
+      debugger;
     });
   }
 
@@ -48,6 +54,8 @@ export class UserListComponent {
 console.log(id);
 
         this.router.navigate(['/editUser',id]);
+
+        debugger;
       }
   }
 }
