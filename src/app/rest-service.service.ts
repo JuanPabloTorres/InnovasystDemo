@@ -12,7 +12,7 @@ export class RestServiceService {
   httpHeader = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer b8626f71e0848831afcf5125ce39f9ddad701f99e00d0e6ae39baa15923325a4'
+      'Authorization': 'Bearer c530705bba0045dd1fe94f7c56571c95a9bffbd1a04dd65e85047dc37d4f1c0c'
     })
   }
   httpError(error: { error: { message: string; }; status: any; message: any; }) {
@@ -36,7 +36,7 @@ export class RestServiceService {
       .pipe(retry(1), catchError(this.httpError));
   }
   create(user: any): Observable<AppUser> {
-    return this.httpClient.post<AppUser>(this.endPoint, JSON.stringify(user), this.httpHeader).pipe(retry(1), catchError(this.httpError));
+    return this.httpClient.post<AppUser>(this.endPoint, user, this.httpHeader).pipe(retry(1), catchError(this.httpError));
   }
   update(id: string, data: any): Observable<AppUser> {
     return this.httpClient.put<AppUser>(this.endPoint + '/' + id, JSON.stringify(data), this.httpHeader)

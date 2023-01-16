@@ -15,6 +15,7 @@ export class NewUserComponent {
     gender: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    status: new FormControl('Active'),
 
   });
 
@@ -25,7 +26,19 @@ export class NewUserComponent {
 
   onNewUserSubmit() {
 
-    this.apiService.create(this.newUserForm).subscribe((data) => { alert("User Created."); });
+  
+
+    let newUserFormJson = JSON.stringify(this.newUserForm.value);
+
+    this.apiService.create(newUserFormJson).subscribe((data:{}) => { 
+
+
+
+      alert("User Created."); });
+
+
+
+
   }
 
 }
