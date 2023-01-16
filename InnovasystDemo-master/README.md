@@ -11,3 +11,6 @@ Para propósitos de entrevista para la compañía Innovasyst. Se creó un proyec
 5.Para poner el proyecto bajo un control de version se utilizo el terminal para crear las configuraciones necesarias para agregar el proyecto a github como repositorio privado.Para este se descargo las version de .git para Windows.Una vez descargado fui a mi proyecto y realizar un .git init con el proposito de crear los archivos iniciales para la configuracion del proyecto en git.Una vez culminado este paso se creo un Commit para que los cambios realizados sean insertados en el push que se realizara al final para asi insertar los cambios al respositorio remoto.
 
 Git URL:https://github.com/JuanPabloTorres/InnovasystDemo Branch:NewUserBtn
+
+Para el hosting se utilizo firebase.
+Hosting Url:https://innovasyst-demo.web.app/Login
